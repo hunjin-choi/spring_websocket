@@ -30,9 +30,19 @@ dependencies {
 	implementation 'org.webjars:sockjs-client:1.1.2'
 	implementation 'org.webjars:stomp-websocket:2.3.3-1'
 	implementation 'com.google.code.gson:gson:2.8.0'
-
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+	// embedded-redis 블로그에선 compile 로 되어있는데, implementation 으로 바꿈
+	implementation group: 'it.ozimov', name: 'embedded-redis', version: '0.7.2'
+	// lettuce -> jedis 블로그에선 compile 로 되어있는데, implementation 으로 바꿈
+	implementation group: 'redis.clients', name: 'jedis'
+	implementation group: 'org.apache.commons', name: 'commons-pool2', version: '2.6.2'
+	implementation ('org.springframework.boot:spring-boot-starter-data-redis') {
+		exclude group: 'io.lettuce', module: 'lettuce-core'
+	}
+	// lombok
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+	// test
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
 }
