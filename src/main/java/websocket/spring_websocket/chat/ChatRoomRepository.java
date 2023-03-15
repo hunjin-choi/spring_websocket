@@ -53,6 +53,8 @@ public class ChatRoomRepository {
      */
     public void enterChatRoom(String roomId) {
         ChannelTopic topic = topics.get(roomId);
+        // topic이 null이 아니면 아무것도 안하는 건가?
+        // yes. client가 하는 subscribe 작업은 이미 "/sub" suffix 붙은 API 보낼때 부터 stomp가 캐치해서 다 해놓음
         if (topic == null) {
             topic = new ChannelTopic(roomId);
             redisMessageListener.addMessageListener(redisSubscriber, topic);
