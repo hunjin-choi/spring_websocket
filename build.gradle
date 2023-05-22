@@ -21,8 +21,10 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 //	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-websocket'
 	implementation 'org.springframework.boot:spring-boot-starter-freemarker'
+	implementation 'com.h2database:h2'
 	implementation 'org.springframework.boot:spring-boot-devtools'
 	implementation 'org.webjars.bower:bootstrap:4.3.1'
 	implementation 'org.webjars.bower:vue:2.5.16'
@@ -39,7 +41,10 @@ dependencies {
 	implementation ('org.springframework.boot:spring-boot-starter-data-redis') {
 		exclude group: 'io.lettuce', module: 'lettuce-core'
 	}
-	// lombok
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'io.jsonwebtoken:jjwt:0.9.1'
+	implementation "javax.xml.bind:jaxb-api:2.1"
+    // lombok
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	// test
